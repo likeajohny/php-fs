@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: php-actions/composer@v6
       - name: PHPUnit Tests
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v7
         with:
           configuration: phpunit.xml.dist
           args: --testdox
