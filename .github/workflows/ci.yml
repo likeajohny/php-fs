@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: php-actions/composer@v6
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
         with:
-          php_version: "8.3"
-      - name: PHPUnit Tests
-        uses: php-actions/phpunit@v4
-        with:
-          php_version: "8.3"
-          configuration: phpunit.xml.dist
-          args: --testdox
+          php-version: "8.3"
+          extensions: fileinfo
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: Run tests
+        run: composer test
