@@ -8,8 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: php-actions/composer@v6
+        with:
+          php_version: "8.3"
       - name: PHPUnit Tests
         uses: php-actions/phpunit@v4
         with:
+          php_version: "8.3"
           configuration: phpunit.xml.dist
           args: --testdox
